@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bar Cafetería Ca Raquel · Almuerzos en Alginet</title>
+<meta name="description" content="Bar cafetería en Carrer Cervantes 101, Alginet. Desayunos y almuerzos desde las 7:30, bocadillos con pan crujiente, tapas y cenas. 4,3 en Google con 354 reseñas.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bowlby+One&family=Damion&family=Work+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --negro:#0F0E0E;      /* fondo del cartel */
+  --tinta:#1B1B19;
+  --crema:#FAE2BA;      /* cinta del logo */
+  --papel:#FBF3E2;
+  --espuma:#FAF8EB;
+  --ambar:#E3AD5D;      /* jarras */
+  --ambar-h:#B97E1F;
+  --oliva:#AA9C76;      /* vestido */
+  --oliva-h:#6F6544;
+  --pelo:#A27250;
+  --tablon:#4E3225;     /* cartel del chivito */
+  --tablon-2:#6A4D40;
+  --wa:#1F7A3E;
+}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{background:var(--negro);color:var(--espuma);font:400 1rem/1.55 'Work Sans',sans-serif;padding-bottom:72px;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit}
+.edit{}
+body.ver-editables .edit{background:#ff0;color:#000;outline:2px dashed #c00;outline-offset:2px}
+:focus-visible{outline:3px solid var(--ambar);outline-offset:3px}
+.wrap{width:min(1180px,100% - 32px);margin-inline:auto}
+.disp{font-family:'Bowlby One',sans-serif;font-weight:400;line-height:.95;letter-spacing:-.005em;text-transform:uppercase}
+.script{font-family:'Damion',cursive;font-weight:400}
+
+/* cinta: el rótulo ondulado del logo */
+.cinta{display:inline-block;background:var(--crema);color:var(--tinta);padding:.35em 2.2em .45em;clip-path:polygon(0 0,100% 0,95% 50%,100% 100%,0 100%,5% 50%);font-family:'Damion',cursive;font-size:1.7rem;line-height:1;filter:drop-shadow(0 0 0 #000)}
+.cinta.o{background:var(--ambar)}
+.cinta.n{background:var(--negro);color:var(--crema)}
+
+/* camafeo: el óvalo del logo */
+.camafeo{position:relative;aspect-ratio:4/5;border-radius:50%;overflow:hidden;box-shadow:0 0 0 6px var(--crema),0 0 0 9px var(--negro),0 0 0 11px var(--ambar)}
+.camafeo img{width:100%;height:100%;object-fit:cover}
+
+/* botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5em;min-height:48px;padding:.7em 1.5em;border-radius:999px;font-weight:700;text-decoration:none;font-size:1rem;border:2px solid transparent;cursor:pointer;font-family:inherit}
+.btn-wa{background:var(--wa);color:#fff}
+.btn-am{background:var(--ambar);color:var(--tinta)}
+.btn-ln{border-color:var(--crema);color:var(--crema)}
+.btn-ln.d{border-color:var(--tinta);color:var(--tinta)}
+
+/* cabecera */
+header{position:sticky;top:0;z-index:20;background:var(--negro);border-bottom:2px solid var(--ambar)}
+.hd{display:flex;align-items:center;gap:12px;min-height:64px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;line-height:1}
+.brand img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%;background:#000}
+.brand small{display:block;font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--crema)}
+.brand b{white-space:nowrap;font-family:'Damion',cursive;font-weight:400;font-size:1.7rem;color:var(--espuma)}
+nav{margin-left:auto;display:none;gap:22px}
+nav a{text-decoration:none;font-weight:600;font-size:.95rem}
+nav a:hover{color:var(--ambar)}
+.hd .btn{margin-left:auto;min-height:42px;padding:.4em 1.1em}
+@media(min-width:900px){nav{display:flex}.hd .btn{margin-left:20px}}
+
+/* hero */
+.hero{padding:28px 0 0;position:relative;overflow:hidden}
+.hero .wrap{display:grid;gap:8px}
+.estado{display:inline-flex;align-items:center;gap:10px;background:var(--crema);color:var(--tinta);padding:.5em 1em;border-radius:999px;font-weight:700;font-size:.9rem;justify-self:start}
+.estado i{width:11px;height:11px;border-radius:50%;background:#999;flex:none}
+.estado.on i{background:#1F9A4A}
+.estado.off i{background:#B33A2B}
+.hero h1{font-size:clamp(2.7rem,14.2vw,8rem);color:var(--espuma);margin:.28em 0 0}
+.hero h1 span{display:block;color:var(--ambar);font-size:.56em;margin-top:.12em;line-height:1}
+.hero .sub{font-size:1.15rem;max-width:30ch;color:var(--crema);margin:14px 0 22px}
+.hero .acc{display:flex;flex-wrap:wrap;gap:12px}
+.hero-img{position:relative;margin:34px auto 0;width:min(78%,420px)}
+.hero-img .pin{position:absolute;width:34%;right:-6%;bottom:-6%;border-radius:50%;height:auto;aspect-ratio:1;object-fit:cover;object-position:50% 30%;box-shadow:0 0 0 4px var(--crema),0 0 0 7px var(--negro);z-index:3;background:#000}
+.hero-img .cinta{position:absolute;left:-8%;bottom:8%;font-size:2rem;transform:rotate(-5deg);z-index:2}
+.cartel-esq{height:34px;margin-top:40px;background:repeating-linear-gradient(90deg,var(--crema) 0 18px,var(--negro) 18px 36px);opacity:.9}
+@media(min-width:900px){
+  .hero{padding-top:56px}
+  .hero .wrap{grid-template-columns:1.2fr .8fr;align-items:center;gap:48px}
+  .hero-img{margin:0 0 0 auto;width:min(100%,400px)}
+  .hero h1{font-size:clamp(4.5rem,8.6vw,8.4rem)}
+  .cartel-esq{margin-top:56px}
+}
+
+/* banda de datos */
+.datos{background:var(--crema);color:var(--tinta);padding:22px 0}
+.datos ul{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.datos li{display:flex;flex-direction:column;border-left:4px solid var(--ambar-h);padding-left:12px}
+.datos b{font-family:'Bowlby One',sans-serif;font-weight:400;font-size:1.7rem;line-height:1}
+.datos span{font-size:.88rem;font-weight:500}
+@media(min-width:800px){.datos ul{grid-template-columns:repeat(4,1fr)}}
+
+/* carta */
+.carta{background:var(--tablon);background-image:repeating-linear-gradient(90deg,transparent 0 118px,rgba(0,0,0,.28) 118px 120px),repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 3px,transparent 3px 9px);padding:72px 0 80px}
+.carta h2{font-size:clamp(2.4rem,9vw,5.4rem);color:var(--crema);max-width:11ch}
+.carta .intro{max-width:44ch;color:#EAD9C0;margin:16px 0 0}
+.carta-grid{display:grid;gap:44px;margin-top:48px}
+.bloque{position:relative}
+.bloque h3{margin-bottom:16px}
+.lista{list-style:none;padding:0;display:grid;gap:0}
+.lista li{display:flex;gap:10px;align-items:baseline;padding:11px 0;border-bottom:2px dotted rgba(250,226,186,.35)}
+.lista li strong{font-weight:700;font-size:1.05rem;color:var(--espuma);flex:none}
+.lista li em{font-style:normal;color:#E2CFB2;font-size:.92rem;flex:1}
+.lista li .pr{margin-left:auto;font-family:'Bowlby One',sans-serif;color:var(--ambar);flex:none;font-size:1.1rem}
+.chivito{display:grid;gap:18px;align-items:center}
+.chivito .camafeo{width:min(70%,280px);margin:12px auto 12px;aspect-ratio:1/1.05}
+.chivito p{color:#EAD9C0}
+.chivito h4{font-family:'Damion',cursive;font-weight:400;font-size:2.8rem;color:var(--ambar);line-height:1}
+.nota-gluten{margin-top:40px;background:var(--crema);color:var(--tinta);padding:18px 22px;border-radius:2px 28px 2px 28px;max-width:62ch}
+@media(min-width:900px){
+  .carta-grid{grid-template-columns:1fr 1fr;gap:70px}
+  .carta-grid .b2{margin-top:90px}
+  .chivito{grid-column:1/-1;grid-template-columns:300px 1fr;gap:48px;margin-top:10px}
+  .chivito .camafeo{width:100%;margin:0}
+}
+
+/* pedir */
+.pedir{background:var(--papel);color:var(--tinta);padding:76px 0 70px;position:relative}
+.pedir h2{font-size:clamp(2.2rem,8vw,4.6rem);max-width:13ch}
+.pasos{list-style:none;padding:0;margin-top:40px;display:grid;gap:26px}
+.pasos li{position:relative;padding:22px 22px 22px 22px;background:var(--crema);border:2px solid var(--tinta);max-width:430px}
+.pasos li:nth-child(2){margin-left:6%}
+.pasos li:nth-child(3){margin-left:12%}
+.pasos h3{font-family:'Damion',cursive;font-weight:400;font-size:2.2rem;line-height:1}
+.pasos p{margin-top:6px}
+.pasos .n{position:absolute;top:-18px;right:16px;width:46px;height:46px;border-radius:50%;background:var(--tinta);color:var(--ambar);display:grid;place-items:center;font-family:'Bowlby One';font-size:1.3rem}
+.pedir .go{margin-top:36px;display:flex;gap:12px;flex-wrap:wrap}
+.servicios{margin-top:34px;display:flex;gap:10px;flex-wrap:wrap}
+.servicios span{border:2px solid var(--tinta);border-radius:999px;padding:.3em 1em;font-weight:600;font-size:.9rem}
+@media(min-width:900px){
+  .pedir .wrap{display:grid;grid-template-columns:.8fr 1.2fr;gap:70px;align-items:start}
+  .pasos{margin-top:0}
+  .pasos li:nth-child(2){margin-left:14%}
+  .pasos li:nth-child(3){margin-left:28%}
+}
+
+/* reseñas */
+.res{padding:76px 0;background:var(--negro)}
+.res h2{font-size:clamp(2.2rem,8vw,4.4rem)}
+.res .gr{display:flex;align-items:baseline;gap:16px;margin:10px 0 40px;flex-wrap:wrap}
+.res .gr b{font-family:'Bowlby One';font-size:5.5rem;color:var(--ambar);line-height:.9;font-weight:400}
+.estrellas{color:var(--ambar);letter-spacing:.15em;font-size:1.15rem}
+.res-grid{display:grid;gap:28px}
+.q{border-top:3px solid var(--ambar);padding-top:16px}
+.q p{font-size:1.15rem}
+.q.big p{font-family:'Damion',cursive;font-size:clamp(2rem,6vw,3.4rem);line-height:1.1;color:var(--crema)}
+.q small{display:block;margin-top:10px;color:var(--oliva)}
+@media(min-width:900px){
+  .res-grid{grid-template-columns:1.5fr 1fr 1fr;gap:40px;align-items:start}
+  .q:nth-child(3){margin-top:60px}
+}
+
+/* galería */
+.gal{background:var(--oliva);color:var(--tinta);padding:70px 0}
+.gal h2{font-size:clamp(2rem,7vw,4rem)}
+.mosaico{margin-top:30px;display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.mosaico figure{margin:0;overflow:hidden;background:#000}
+.mosaico img{width:100%;height:100%;object-fit:cover}
+.mosaico .a{grid-column:1/5;aspect-ratio:1.5}
+.mosaico .b{grid-column:5/7;aspect-ratio:.7}
+.mosaico .c{grid-column:1/3;aspect-ratio:1}
+.mosaico .d{grid-column:3/7;aspect-ratio:1.9}
+.mosaico .e{grid-column:1/4;aspect-ratio:1.1}
+.mosaico .f{grid-column:4/7;aspect-ratio:1.1}
+.mosaico .a,.mosaico .e{border-radius:0 40px 0 0}
+.mosaico .d{border-radius:40px 0 0 0}
+.gal .btn{margin-top:26px}
+@media(min-width:900px){.mosaico{grid-template-columns:repeat(12,1fr)}.mosaico .a{grid-column:1/6;aspect-ratio:1.2}.mosaico .b{grid-column:6/8;aspect-ratio:.6}.mosaico .c{grid-column:8/10;aspect-ratio:.9}.mosaico .d{grid-column:10/13;aspect-ratio:.9}.mosaico .e{grid-column:1/7;aspect-ratio:2}.mosaico .f{grid-column:7/13;aspect-ratio:2}}
+
+/* horario y mapa */
+.donde{background:var(--negro);padding:76px 0 60px}
+.donde h2{font-size:clamp(2.2rem,8vw,4.6rem)}
+.donde .grid{display:grid;gap:40px;margin-top:34px}
+.horario{list-style:none;padding:0}
+.horario li{display:flex;justify-content:space-between;gap:12px;padding:11px 12px;border-bottom:2px dotted rgba(250,226,186,.3)}
+.horario li.hoy{background:var(--crema);color:var(--tinta);font-weight:700;border-radius:2px 18px 2px 18px;border-bottom-color:transparent}
+.horario li.cerr span:last-child{opacity:.65}
+.dir{margin-top:20px;font-size:1.05rem}
+.dir a{color:var(--ambar)}
+.mapa{border:3px solid var(--crema);border-radius:2px 36px 2px 36px;overflow:hidden;min-height:340px;background:#222}
+.mapa iframe{width:100%;height:100%;min-height:340px;border:0;display:block}
+.wa-grande{margin-top:34px;display:flex;align-items:center;gap:16px;flex-wrap:wrap;background:var(--wa);color:#fff;padding:22px;text-decoration:none;border-radius:2px 36px 2px 36px}
+.wa-grande b{font-family:'Bowlby One';font-weight:400;font-size:clamp(1.6rem,6vw,2.6rem);line-height:1}
+@media(min-width:900px){.donde .grid{grid-template-columns:.8fr 1.2fr;gap:60px}.mapa,.mapa iframe{min-height:440px}}
+
+footer{background:#000;border-top:2px solid var(--ambar);padding:34px 0 20px;font-size:.92rem}
+footer .wrap{display:grid;gap:20px}
+footer .redes{display:flex;gap:18px;flex-wrap:wrap}
+footer a{color:var(--crema)}
+footer .legal{color:#a99;font-size:.82rem}
+
+/* franja dueño */
+.dueno{background:#fff;color:#111;border-top:6px dashed #c00;padding:46px 0 40px}
+.dueno .tag{display:inline-block;background:#c00;color:#fff;font-weight:700;padding:.3em .8em;font-size:.85rem;margin-bottom:14px}
+.dueno h2{font-size:1.6rem;margin-bottom:14px;font-family:'Work Sans';font-weight:700}
+.dueno ul{padding-left:1.2em;display:grid;gap:10px;max-width:70ch}
+.dueno button{margin-top:22px;background:#111;color:#fff;border:0;padding:.8em 1.4em;font:600 1rem 'Work Sans';cursor:pointer;min-height:48px}
+
+/* barra fija móvil */
+.barra{position:fixed;inset:auto 0 0 0;z-index:30;display:flex;background:var(--negro);border-top:2px solid var(--ambar);padding:8px 10px;gap:8px}
+.barra a{flex:1;text-align:center;padding:.7em .5em;border-radius:999px;font-weight:700;text-decoration:none;min-height:46px;display:flex;align-items:center;justify-content:center}
+.barra .ll{background:var(--crema);color:var(--tinta)}
+.barra .ww{background:var(--wa);color:#fff}
+@media(min-width:900px){.barra{display:none}body{padding-bottom:0}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap hd">
+    <a class="brand" href="#top" aria-label="Bar Cafetería Ca Raquel, inicio">
+      <img src="img/pinup.jpg" alt="" width="44" height="44">
+      <span><small>Bar Cafetería</small><b>Ca Raquel</b></span>
+    </a>
+    <nav aria-label="Principal">
+      <a href="#carta">Carta</a>
+      <a href="#pedir">Pedir</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#donde">Horario y mapa</a>
+    </nav>
+    <a class="btn btn-wa" href="https://wa.me/34672551834?text=Hola%2C%20quer%C3%ADa%20hacer%20un%20pedido%20para%20almorzar" target="_blank" rel="noopener">Pedir</a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="estado" id="estado" role="status"><i></i><span>Comprobando horario…</span></p>
+      <h1 class="disp">Almuerzo<span>con pan crujiente</span></h1>
+      <p class="sub">Bocadillos bien cargados, tapas y buen trato en el Carrer Cervantes. Desayunos y almuerzos desde las 7:30.</p>
+      <div class="acc">
+        <a class="btn btn-wa" href="https://wa.me/34672551834?text=Hola%2C%20quer%C3%ADa%20encargar%20unos%20bocadillos" target="_blank" rel="noopener">Encargar por WhatsApp</a>
+        <a class="btn btn-ln" href="#carta">Ver la carta</a>
+      </div>
+    </div>
+    <div class="hero-img">
+      <div class="camafeo"><img src="https://images.unsplash.com/photo-1550507992-eb63ffee0847?w=900&fit=crop" alt="Bocadillo cargado con pan crujiente (foto de ejemplo)" width="900" height="1125"></div>
+      <img class="pin" src="img/pinup.jpg" alt="Logo de Ca Raquel: la camarera con la bandeja de jarras" width="260" height="256">
+      <span class="cinta">Ca Raquel</span>
+    </div>
+  </div>
+  <div class="cartel-esq" aria-hidden="true"></div>
+</section>
+
+<section class="datos" aria-label="Datos del bar">
+  <div class="wrap">
+    <ul>
+      <li><b>4,3</b><span>en Google, 354 reseñas</span></li>
+      <li><b class="edit">7:30</b><span>abrimos para el desayuno</span></li>
+      <li><b>Terraza</b><span>y comida para llevar</span></li>
+      <li><b class="edit">Cenas</b><span>viernes y sábado</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="carta" id="carta">
+  <div class="wrap">
+    <h2 class="disp">De la barra al plato</h2>
+    <p class="intro">Lo que más se pide en Ca Raquel: el almuerzo de bocadillo con café, las tapas y la cocina de cada día.</p>
+    <div class="carta-grid">
+      <div class="bloque">
+        <h3><span class="cinta o">Desayunos y almuerzos</span></h3>
+        <ul class="lista">
+          <li><strong>Bocadillos</strong><em>Fríos y calientes, con el pan crujiente de la casa</em></li>
+          <li class="edit"><strong>Bocata de chipirones</strong><em>A la plancha, con cacahuetes y olivas. Con bebida y café</em><span class="pr">7 €</span></li>
+          <li class="edit"><strong>Chivito</strong><em>Huevo, bacon y lechuga sobre pan de barra</em></li>
+          <li class="edit"><strong>Tostadas</strong><em>Tomate, aceite y lo que pidas</em></li>
+          <li><strong>Café y cremaet</strong><em>Para acompañar el almuerzo</em></li>
+        </ul>
+      </div>
+      <div class="bloque b2">
+        <h3><span class="cinta">Tapas y cenas</span></h3>
+        <ul class="lista">
+          <li><strong>Tapas</strong><em>Para picar en la terraza con una caña</em></li>
+          <li><strong>Carrillada</strong><em>De la cocina de cada día</em></li>
+          <li class="edit"><strong>Raciones</strong><em>Para compartir en la mesa</em></li>
+          <li class="edit"><strong>Platos del día</strong><em>Pregunta por el menú de hoy</em></li>
+          <li class="edit"><strong>Cenas de fin de semana</strong><em>Viernes y sábado por la noche</em></li>
+        </ul>
+      </div>
+      <div class="chivito">
+        <div class="camafeo"><img src="img/chivito.jpg" alt="Chivito de Ca Raquel con huevo, bacon y lechuga" width="485" height="305"></div>
+        <div>
+          <h4>El chivito</h4>
+          <p>Una de las fotos que Ca Raquel publica en su Instagram. Pan crujiente, huevo y bacon: el almuerzo que se pide por teléfono antes de pasar por la barra.</p>
+          <p style="margin-top:14px"><a class="btn btn-am" href="https://wa.me/34672551834?text=Hola%2C%20quer%C3%ADa%20encargar%20un%20chivito" target="_blank" rel="noopener">Encargar un chivito</a></p>
+        </div>
+      </div>
+    </div>
+    <p class="nota-gluten edit"><strong>Opciones sin gluten.</strong> Pregunta por ellas al pedir: Ca Raquel tiene un apartado de sin gluten en su Instagram.</p>
+  </div>
+</section>
+
+<section class="pedir" id="pedir">
+  <div class="wrap">
+    <div>
+      <h2 class="disp">Pide antes, almuerza sin esperas</h2>
+      <p style="margin-top:16px;max-width:38ch">Una de las pegas que cuentan algunas reseñas es que en hora punta el servicio va lento. Con el pedido hecho de antemano, lo tienes en barra o en tu mesa de la terraza.</p>
+      <div class="servicios"><span>Terraza</span><span>Para llevar</span><span>Reservas</span><span>Pago con tarjeta</span></div>
+      <div class="go">
+        <a class="btn btn-wa" href="https://wa.me/34672551834?text=Hola%2C%20quer%C3%ADa%20hacer%20un%20pedido" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+        <a class="btn btn-ln d" href="tel:+34672551834">Llamar al 672 55 18 34</a>
+      </div>
+    </div>
+    <ol class="pasos">
+      <li><span class="n">1</span><h3>Elige</h3><p>Bocadillo, tapa o el plato que te apetezca. Si no sabes, pregunta qué hay hoy.</p></li>
+      <li><span class="n">2</span><h3>Avisa</h3><p>Llama o escribe por WhatsApp con tu pedido y la hora a la que pasas.</p></li>
+      <li><span class="n">3</span><h3>Pasa o siéntate</h3><p>Recógelo en la barra o ponte en la terraza. Está en el Carrer Cervantes 101.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="res" id="opiniones">
+  <div class="wrap">
+    <h2 class="disp">Lo que dicen en Google</h2>
+    <div class="gr"><b>4,3</b><div><div class="estrellas" aria-label="4,3 de 5">★★★★☆</div><span>354 reseñas</span></div></div>
+    <div class="res-grid">
+      <blockquote class="q big"><p>Hemos ido a almorzar, bocadillos generosos y sabrosos.</p><small>Reseñas de Google</small></blockquote>
+      <blockquote class="q"><p>Buena relación calidad precio, camareros amables, un poco lento al servir.</p><small>Reseñas de Google</small></blockquote>
+      <blockquote class="q"><p>Buena cocina, buen trato.</p><small>Reseñas de Google</small></blockquote>
+    </div>
+  </div>
+</section>
+
+<section class="gal" id="galeria">
+  <div class="wrap">
+    <h2 class="disp">Del Instagram a la mesa</h2>
+    <p style="margin-top:12px;max-width:44ch">Fotos de ejemplo mientras se sustituyen por las del bar.</p>
+    <div class="mosaico">
+      <figure class="a"><img loading="lazy" src="https://images.unsplash.com/photo-1554433607-66b5efe9d304?w=900&fit=crop" alt="Bocadillo sobre plato negro (foto de ejemplo)"></figure>
+      <figure class="b"><img loading="lazy" src="https://images.unsplash.com/photo-1480348709911-be15f2c579ff?w=600&fit=crop" alt="Café con leche (foto de ejemplo)"></figure>
+      <figure class="c"><img loading="lazy" src="https://images.unsplash.com/photo-1585768425229-d3a88ff63ebb?w=600&fit=crop" alt="Tostadas con tomate (foto de ejemplo)"></figure>
+      <figure class="d"><img loading="lazy" src="https://images.unsplash.com/photo-1656423521731-9665583f100c?w=900&fit=crop" alt="Mesa con tapas (foto de ejemplo)"></figure>
+      <figure class="e"><img loading="lazy" src="https://images.unsplash.com/photo-1555965708-54e82207ba97?w=900&fit=crop" alt="Patatas bravas (foto de ejemplo)"></figure>
+      <figure class="f"><img loading="lazy" src="img/chivito.jpg" alt="Chivito de Ca Raquel"></figure>
+    </div>
+    <a class="btn btn-ln d" href="https://www.instagram.com/bar_cafeteria_ca_raquel/" target="_blank" rel="noopener">Síguenos en Instagram</a>
+  </div>
+</section>
+
+<section class="donde" id="donde">
+  <div class="wrap">
+    <h2 class="disp">Carrer Cervantes, 101</h2>
+    <div class="grid">
+      <div>
+        <ul class="horario edit" id="horario"></ul>
+        <p class="dir">Alginet (Valencia). <a href="https://www.google.com/maps/search/?api=1&query=Bar+Cafeter%C3%ADa+Ca+Raquel+Alginet" target="_blank" rel="noopener">Cómo llegar</a></p>
+        <a class="wa-grande" href="https://wa.me/34672551834?text=Hola%2C%20quer%C3%ADa%20hacer%20un%20pedido" target="_blank" rel="noopener"><span>Escríbenos</span><b>672 55 18 34</b></a>
+      </div>
+      <div class="mapa"><iframe title="Mapa de Bar Cafetería Ca Raquel" loading="lazy" src="https://maps.google.com/maps?q=Bar+Cafeter%C3%ADa+Ca+Raquel+Alginet&output=embed"></iframe></div>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="redes">
+      <a href="https://www.instagram.com/bar_cafeteria_ca_raquel/" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.facebook.com/profile.php?id=100063657549104" target="_blank" rel="noopener">Facebook</a>
+      <a href="tel:+34672551834">672 55 18 34</a>
+    </div>
+    <p class="legal"><a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Cookies</a><br>Bar Cafetería Ca Raquel · Carrer Cervantes 101, Alginet</p>
+  </div>
+</footer>
+
+<section class="dueno">
+  <div class="wrap">
+    <span class="tag">Esta franja no aparece en la web publicada</span>
+    <h2>Para Raquel: por qué una web propia</h2>
+    <ul>
+      <li>Pedidos de almuerzo directos por WhatsApp o teléfono, sin comisiones ni plataformas, y con la hora a la que pasan a recogerlo.</li>
+      <li>Salir mejor en Google y en Maps cuando alguien busca "bar en Alginet" o "almuerzos en Alginet": hoy su ficha solo enlaza a Facebook.</li>
+      <li>Carta y horario fáciles de actualizar (menú del día, cenas del fin de semana, cierres por fiesta) sin depender de un cartel en Instagram.</li>
+      <li>Sus 4,3 y 354 reseñas presentadas con imagen profesional, con el estilo de su logo y su cartel negro y crema.</li>
+    </ul>
+    <button type="button" id="resaltar">Resaltar datos a confirmar</button>
+  </div>
+</section>
+
+<div class="barra">
+  <a class="ll" href="tel:+34672551834">Llamar</a>
+  <a class="ww" href="https://wa.me/34672551834?text=Hola%2C%20quer%C3%ADa%20hacer%20un%20pedido" target="_blank" rel="noopener">Pedir por WhatsApp</a>
+</div>
+
+<script>
+(function(){
+  // Horario (pendiente de confirmar con el negocio). Índice 0 = domingo.
+  var H={0:[],1:[],2:[[450,840]],3:[[450,840]],4:[[450,840]],5:[[450,840],[1140,1500]],6:[[480,840],[1140,1500]]};
+  var N=['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+  function fmt(m){m=m%1440;var h=Math.floor(m/60),mi=m%60;return h+':'+(mi<10?'0':'')+mi}
+  function ahora(){
+    var p=new Intl.DateTimeFormat('es-ES',{timeZone:'Europe/Madrid',weekday:'short',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date());
+    var w=p.find(function(x){return x.type==='weekday'}).value.toLowerCase().replace('.','');
+    var map={dom:0,lun:1,mar:2,mié:3,mie:3,jue:4,vie:5,sáb:6,sab:6};
+    var h=+p.find(function(x){return x.type==='hour'}).value%24, m=+p.find(function(x){return x.type==='minute'}).value;
+    return {d:map[w],t:h*60+m};
+  }
+  var a=ahora();
+  // lista
+  var ul=document.getElementById('horario'),out='';
+  [1,2,3,4,5,6,0].forEach(function(d){
+    var tr=H[d].map(function(r){return fmt(r[0])+' a '+fmt(r[1])}).join(' y ');
+    out+='<li class="'+(d===a.d?'hoy':'')+(tr?'':' cerr')+'"><span>'+N[d]+'</span><span>'+(tr||'Cerrado')+'</span></li>';
+  });
+  ul.innerHTML=out;
+  // estado
+  var el=document.getElementById('estado'),tx=el.querySelector('span');
+  var abierto=H[a.d].some(function(r){return a.t>=r[0]&&a.t<r[1]});
+  var prev=(a.d+6)%7;
+  if(!abierto&&H[prev].some(function(r){return r[1]>1440&&a.t<r[1]-1440})) abierto=true;
+  if(abierto){el.className='estado on';tx.textContent='Abierto ahora';}
+  else{
+    var next=null;
+    for(var i=0;i<8&&!next;i++){
+      var d=(a.d+i)%7;
+      H[d].forEach(function(r){ if(!next&&(i>0||r[0]>a.t)) next={i:i,d:d,t:r[0]}; });
+    }
+    el.className='estado off';
+    if(next){tx.textContent='Cerrado ahora. Abrimos '+(next.i===0?'hoy':(next.i===1?'mañana':'el '+N[next.d].toLowerCase()))+' a las '+fmt(next.t);}
+    else tx.textContent='Cerrado ahora';
+  }
+  document.getElementById('resaltar').addEventListener('click',function(){document.body.classList.toggle('ver-editables')});
+})();
+</script>
+</body>
+</html>
